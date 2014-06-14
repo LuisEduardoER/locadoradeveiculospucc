@@ -2,35 +2,57 @@ package net.danielpaz.pucc.poo.trabalho.model;
 
 public class Agendamento {
 	
-	private String nomeUsuario;
-	private String placaVeiculo;
-	private String dataLocacao;
+	private int codigo;
+	private int usuario;
+	private String data;
+	private int veiculo;
 	private boolean caucao;
 	private String dataFinal;
-	private double valorAluguel;
-	
-	public Agendamento(String nomeUsuario, String placaVeiculo, String dataLocacao, boolean caucao, String dataFinal, double valorAluguel)
-	{
-		this.setNomeUsuario(nomeUsuario);
-		this.setPlacaVeiculo(placaVeiculo);
-		this.setDataLocacao(dataLocacao);
-		this.setCaucao(caucao);
-		this.setDataFinal(dataFinal);
-		this.setValorAluguel(valorAluguel);
-	}
-	
+	private float valorAluguel;
 	
 
-	public String getNomeUsuario()
+	public Agendamento (int codigo)
 	{
-		return this.nomeUsuario;
+		this.setCodigo(codigo);
 	}
 	
-	public void setNomeUsuario(String nomeUsuario)
+	public Agendamento (int codigo, int usuario, String data, boolean caucao, String dataFinal, int veiculo, float valorAlguel)
 	{
-		this.nomeUsuario = nomeUsuario;
+		this.setCodigo(codigo);
+		this.setUsuario(usuario);
+		this.setData(data);
+		this.setCaucao(caucao);
+		this.setDataFinal(dataFinal);
+		this.setVeiculo(veiculo);
+		this.setValorAluguel(valorAlguel);
 	}
+
+
 	
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public int getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(int usuario) {
+		this.usuario = usuario;
+	}
+
+	public int getVeiculo() {
+		return veiculo;
+	}
+
+	public void setVeiculo(int veiculo) {
+		this.veiculo = veiculo;
+	}
+
 	public String getDataFinal() {
 		return dataFinal;
 	}
@@ -39,24 +61,15 @@ public class Agendamento {
 		this.dataFinal = dataFinal;
 	}
 
-	public String getPlacaVeiculo()
+	
+	public String getData()
 	{
-		return this.placaVeiculo;
+		return this.data;
 	}
 	
-	public void setPlacaVeiculo(String placaVeiculo)
+	public void setData(String data)
 	{
-		this.placaVeiculo = placaVeiculo;
-	}
-	
-	public String getDataLocacao()
-	{
-		return this.dataLocacao;
-	}
-	
-	public void setDataLocacao(String dataLocacao)
-	{
-		this.dataLocacao = dataLocacao;
+		this.data = data;
 	}
 	
 	public boolean getCaucao()
@@ -69,19 +82,19 @@ public class Agendamento {
 		this.caucao = caucao;
 	}
 	
-	public double getValorAluguel() {
+	public float getValorAluguel() {
 		return valorAluguel;
 	}
 
-	public void setValorAluguel(double valorAluguel) {
+	public void setValorAluguel(float valorAluguel) {
 		this.valorAluguel = valorAluguel;
 	}
 	
-	public void adicionaValorCaucao (boolean caucao, double valorAluguel)
+	public void adicionaValorCaucao (boolean caucao, float valorAluguel)
 	{
 		if (caucao == true)
 		{
-			double valorComCaucao = valorAluguel + (valorAluguel * 0.1);
+			float valorComCaucao = (float) (valorAluguel + (valorAluguel * 0.1));
 			setValorAluguel(valorComCaucao);
 		}
 		

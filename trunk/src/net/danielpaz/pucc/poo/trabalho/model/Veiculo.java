@@ -2,37 +2,40 @@ package net.danielpaz.pucc.poo.trabalho.model;
 
 public class Veiculo 
 {	
-	private String marca;
-	private String modelo;
+	private int codigo;
+	private int modelo;
 	private String placa;
-	private float preco;
-	private String descricaoTipoVeiculo;
+	private int tipoVeiculo;
 	
-	public Veiculo(String marca, String modelo, String placa, float preco, String descricaoTipoVeiculo)
+	public Veiculo(int modelo, String placa, int tipoVeiculo)
 	{		
-		this.setMarca(marca);
 		this.setModelo(modelo);
 		this.setPlaca(placa);
-		this.setPreco(preco);
-		this.setDescricaoTipoVeiculo(descricaoTipoVeiculo);
+		this.setTipoVeiculo(tipoVeiculo);
+		
 	}
 	
-	public String getMarca()
-	{
-		return this.marca;
-	}
-	
-	public void setMarca(String marca)
-	{
-		this.marca = marca;
-	}
-	
-	public String getModelo()
+	public Veiculo (int codigo) throws Exception
+	    {
+	        this.setCodigo (codigo);
+
+	    }
+	   
+		public Veiculo(int codigo, int modelo, String placa, int tipoVeiculo) throws Exception
+		{	
+			this.setCodigo(codigo);
+			this.setModelo(modelo);
+			this.setPlaca(placa);
+			this.setTipoVeiculo(tipoVeiculo);
+		}
+		
+		
+	public int getModelo()
 	{
 		return this.modelo;
 	}
 	
-	public void setModelo(String modelo)
+	public void setModelo(int modelo)
 	{
 		this.modelo = modelo;
 	}
@@ -47,25 +50,27 @@ public class Veiculo
 		this.placa = placa;
 	}
 	
-	public float getPreco()
-	{
-		return this.preco;
-	}
 	
-	public void setPreco(float preco)
-	{
-		this.preco = preco;
-	}
-	
-	public String getDescricaoTipoVeiculo()
-	{
-		return this.descricaoTipoVeiculo;
-	}
-	
-	public void setDescricaoTipoVeiculo(String descricaoTipoVeiculo)
-	{
-		this.descricaoTipoVeiculo = descricaoTipoVeiculo;
-	}
+	 public void setCodigo (int codigo) throws Exception
+	    {
+	        if (codigo <= 0)
+	            throw new Exception ("Codigo invalido");
+
+	        this.codigo = codigo;
+	    }
+	 
+	    public int getCodigo ()
+	    {
+	        return this.codigo;
+	    }
+	    
+	    public int getTipoVeiculo() {
+			return tipoVeiculo;
+		}
+
+		public void setTipoVeiculo(int tipoVeiculo) {
+			this.tipoVeiculo = tipoVeiculo;
+		}
 	
 	
 }
