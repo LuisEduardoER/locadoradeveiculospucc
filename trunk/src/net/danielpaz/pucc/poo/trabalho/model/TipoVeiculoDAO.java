@@ -17,7 +17,7 @@ public class TipoVeiculoDAO {
 	    {	
 	        String qry;
 
-	        qry = "SELECT * FROM TipoVeiculo WHERE IdTipoVeiculo=" +codigo +";";
+	        qry = "SELECT * FROM TipoVeiculo WHERE IdTipoVeiculo=" +codigo;
 
 	        ResultSet resultado = bd.execConsulta (qry);
 
@@ -32,7 +32,7 @@ public class TipoVeiculoDAO {
 
 	        String cmd;
 
-	        cmd = "INSERT INTO TipoVeiculo (IdTipoVeiculo, Preco, Descricao) VALUES ("+tipoVeiculo.getCodigo() +", " +tipoVeiculo.getPreco() + ", '" +tipoVeiculo.getDescricao()+ "');";
+	        cmd = "INSERT INTO TipoVeiculo (IdTipoVeiculo, Preco, Descricao) VALUES ("+tipoVeiculo.getCodigo() +", " +tipoVeiculo.getPreco() + ", '" +tipoVeiculo.getDescricao()+ "')";
 	        bd.execComando (cmd);
 	    }
 
@@ -46,7 +46,7 @@ public class TipoVeiculoDAO {
 
 	        String cmd;
 
-	        cmd = "DELETE FROM TipoVeiculo WHERE IdTipoVeiculo=" + codigo +";";
+	        cmd = "DELETE FROM TipoVeiculo WHERE IdTipoVeiculo=" + codigo;
 
 	        bd.execComando (cmd);
 	    }
@@ -62,7 +62,7 @@ public class TipoVeiculoDAO {
 	        String cmd;
 
 	        cmd = "UPDATE TipoVeiculo SET Descricao= '" +tipoVeiculo.getDescricao() + "', Preco=" +tipoVeiculo.getPreco() +
-	              " WHERE IdTipoVeiculo=" + tipoVeiculo.getCodigo() +";";
+	              " WHERE IdTipoVeiculo=" + tipoVeiculo.getCodigo();
 
 	        bd.execComando (cmd);        
 	    }
@@ -74,7 +74,7 @@ public class TipoVeiculoDAO {
 	        
 	        String qry;
 
-	        qry = "SELECT * FROM TipoVeiculo WHERE IdTipoVeiculo=" + codigo +";";
+	        qry = "SELECT * FROM TipoVeiculo WHERE IdTipoVeiculo=" + codigo;
 
 	        ResultSet resultado = bd.execConsulta (qry);
 	        
@@ -93,7 +93,7 @@ public class TipoVeiculoDAO {
 	    {
 	        String qry;
 
-	        qry = "SELECT * FROM TipoVeiculo;";
+	        qry = "SELECT * FROM TipoVeiculo";
 
 	        ResultSet resultado;
 	        

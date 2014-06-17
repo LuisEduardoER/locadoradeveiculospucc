@@ -19,7 +19,7 @@ public class VeiculoDAO {
 	    {	
 	        String qry;
 
-	        qry = "SELECT * FROM Veiculo WHERE IdVeiculo=" +codigo +";";
+	        qry = "SELECT * FROM Veiculo WHERE IdVeiculo=" +codigo;
 
 	        ResultSet resultado = bd.execConsulta (qry);
 
@@ -35,7 +35,7 @@ public class VeiculoDAO {
 	        String cmd;
 
 	        cmd = "INSERT INTO Veiculo (IdVeiculo, IdModelo, Placa, IdTipoVeiculo) VALUES ("+veiculo.getCodigo() +"," +veiculo.getModelo() +", '" 
-	        +veiculo.getPlaca() +"', " +veiculo.getTipoVeiculo() +");";
+	        +veiculo.getPlaca() +"', " +veiculo.getTipoVeiculo() +")";
 	        bd.execComando (cmd);
 	    }
 
@@ -49,7 +49,7 @@ public class VeiculoDAO {
 
 	        String cmd;
 
-	        cmd = "DELETE FROM Veiculo WHERE IdVeiculo=" + codigo +";";
+	        cmd = "DELETE FROM Veiculo WHERE IdVeiculo=" + codigo;
 
 	        bd.execComando (cmd);
 	    }
@@ -65,7 +65,7 @@ public class VeiculoDAO {
 	        String cmd;
 
 	        cmd = "UPDATE Veiculo SET IdModelo= " +veiculo.getModelo() + ", Placa= '" +veiculo.getPlaca() + "', IdTipoVeiculo=" +veiculo.getTipoVeiculo()
-	              +" WHERE IdVeiculo=" +veiculo.getCodigo() +";";
+	              +" WHERE IdVeiculo=" +veiculo.getCodigo();
 
 	        bd.execComando (cmd);        
 	    }
@@ -96,7 +96,7 @@ public class VeiculoDAO {
 	    {
 	        String qry;
 
-	        qry = "SELECT * FROM Veiculo;";
+	        qry = "SELECT * FROM Veiculo";
 
 	        ResultSet resultado;
 	        
