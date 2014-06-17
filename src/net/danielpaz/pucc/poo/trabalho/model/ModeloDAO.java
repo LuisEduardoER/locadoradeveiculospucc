@@ -17,7 +17,7 @@ public class ModeloDAO {
 	    {	
 	        String qry;
 
-	        qry = "SELECT * FROM Modelo WHERE IdModelo=" +codigo +";";
+	        qry = "SELECT * FROM Modelo WHERE IdModelo=" +codigo;
 
 	        ResultSet resultado = bd.execConsulta (qry);
 
@@ -32,7 +32,7 @@ public class ModeloDAO {
 
 	        String cmd;
 
-	        cmd = "INSERT INTO Modelo (IdModelo, IdMarca, Descricao) VALUES ("+modelo.getCodigo() +", " +modelo.getMarca() + ", '" +modelo.getDescricao()+ "');";
+	        cmd = "INSERT INTO Modelo (IdModelo, IdMarca, Descricao) VALUES ("+modelo.getCodigo() +", " +modelo.getMarca() + ", '" +modelo.getDescricao()+ "')";
 	        bd.execComando (cmd);
 	    }
 
@@ -46,7 +46,7 @@ public class ModeloDAO {
 
 	        String cmd;
 
-	        cmd = "DELETE FROM Modelo WHERE IdModelo=" + codigo +";";
+	        cmd = "DELETE FROM Modelo WHERE IdModelo=" + codigo;
 
 	        bd.execComando (cmd);
 	    }
@@ -62,7 +62,7 @@ public class ModeloDAO {
 	        String cmd;
 
 	        cmd = "UPDATE Modelo SET Descricao= '" +modelo.getDescricao() + "', IdMarca=" +modelo.getMarca() +
-	              " WHERE IdModelo=" + modelo.getCodigo() +";";
+	              " WHERE IdModelo=" + modelo.getCodigo();
 
 	        bd.execComando (cmd);        
 	    }
@@ -74,7 +74,7 @@ public class ModeloDAO {
 	        
 	        String qry;
 
-	        qry = "SELECT * FROM Modelo WHERE IdModelo=" + codigo +";";
+	        qry = "SELECT * FROM Modelo WHERE IdModelo=" + codigo;
 
 	        ResultSet resultado = bd.execConsulta (qry);
 	        
@@ -93,7 +93,7 @@ public class ModeloDAO {
 	    {
 	        String qry;
 
-	        qry = "SELECT * FROM Modelo;";
+	        qry = "SELECT * FROM Modelo";
 
 	        ResultSet resultado;
 	        

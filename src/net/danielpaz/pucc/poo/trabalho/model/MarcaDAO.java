@@ -17,7 +17,7 @@ public class MarcaDAO {
 	    {	
 	        String qry;
 
-	        qry = "SELECT * FROM Marca WHERE IdMarca=" +codigo +";";
+	        qry = "SELECT * FROM Marca WHERE IdMarca=" +codigo;
 
 	        ResultSet resultado = bd.execConsulta (qry);
 
@@ -32,7 +32,7 @@ public class MarcaDAO {
 
 	        String cmd;
 
-	        cmd = "INSERT INTO Marca (IdMarca, Descricao) VALUES (" +marca.getCodigo() +", '"+marca.getDescricao()+"');";
+	        cmd = "INSERT INTO Marca (IdMarca, Descricao) VALUES (" +marca.getCodigo() +", '"+marca.getDescricao()+"')";
 	        bd.execComando (cmd);
 	    }
 
@@ -46,7 +46,7 @@ public class MarcaDAO {
 
 	        String cmd;
 
-	        cmd = "DELETE FROM Marca WHERE IdMarca=" + codigo +";";
+	        cmd = "DELETE FROM Marca WHERE IdMarca=" + codigo;
 
 	        bd.execComando (cmd);
 	    }
@@ -64,7 +64,7 @@ public class MarcaDAO {
 	        cmd = "UPDATE Marca SET Descricao=" +
 	              "'" + marca.getDescricao() + ", ' " +
 	              "WHERE IdMarca=" +
-	               marca.getCodigo() +";";
+	               marca.getCodigo();
 
 	        bd.execComando (cmd);        
 	    }
@@ -76,7 +76,7 @@ public class MarcaDAO {
 	        
 	        String qry;
 
-	        qry = "SELECT * FROM Marca WHERE IdMarca=" + codigo +";";
+	        qry = "SELECT * FROM Marca WHERE IdMarca=" + codigo;
 
 	        ResultSet resultado = bd.execConsulta (qry);
 
@@ -96,7 +96,7 @@ public class MarcaDAO {
 	        
 	        String qry;
 
-	        qry = "SELECT * FROM Marca WHERE Descricao= '" +desc + "';";
+	        qry = "SELECT * FROM Marca WHERE Descricao= '" +desc + "'";
 
 	        ResultSet resultado = bd.execConsulta (qry);
 
@@ -113,7 +113,7 @@ public class MarcaDAO {
 	    {
 	        String qry;
 
-	        qry = "SELECT * FROM Marca;";
+	        qry = "SELECT * FROM Marca";
 
 	        ResultSet resultado;
 	        

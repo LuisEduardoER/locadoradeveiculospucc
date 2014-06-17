@@ -17,7 +17,7 @@ public class UsuarioDAO {
     {	
         String qry;
 
-        qry = "SELECT * FROM Usuario WHERE IdUsuario=" +codigo +";";
+        qry = "SELECT * FROM Usuario WHERE IdUsuario=" +codigo;
 
         ResultSet resultado = bd.execConsulta (qry);
 
@@ -32,7 +32,7 @@ public class UsuarioDAO {
 
         String cmd;
 
-        cmd = "INSERT INTO Usuario (IdUsuario, Nome, Email, Senha) VALUES (" +usuario.getCodigo() +", '" +usuario.getNome() +"', '" +usuario.getEmail() +"', '" +usuario.getSenha() +"' );";
+        cmd = "INSERT INTO Usuario (IdUsuario, Nome, Email, Senha) VALUES (" +usuario.getCodigo() +", '" +usuario.getNome() +"', '" +usuario.getEmail() +"', '" +usuario.getSenha() +"' )";
         bd.execComando (cmd);
     }
 
@@ -46,7 +46,7 @@ public class UsuarioDAO {
 
         String cmd;
 
-        cmd = "DELETE FROM Usuario WHERE IdUsuario=" + codigo +";";
+        cmd = "DELETE FROM Usuario WHERE IdUsuario=" + codigo;
 
         bd.execComando (cmd);
     }
@@ -62,7 +62,7 @@ public class UsuarioDAO {
         String cmd;
 
         cmd = "UPDATE Usuario SET Nome= '" +usuario.getNome() + "', Email=" +usuario.getEmail() + "', Senha=" +usuario.getSenha()
-              +" WHERE IdUsuario=" + usuario.getCodigo() +";";
+              +" WHERE IdUsuario=" + usuario.getCodigo();
 
         bd.execComando (cmd);        
     }
@@ -74,7 +74,7 @@ public class UsuarioDAO {
         
         String qry;
 
-        qry = "SELECT * FROM Usuario WHERE IdUsuario=" + codigo +";";
+        qry = "SELECT * FROM Usuario WHERE IdUsuario=" + codigo;
 
         ResultSet resultado = bd.execConsulta (qry);
         
@@ -93,7 +93,7 @@ public class UsuarioDAO {
     {
         String qry;
 
-        qry = "SELECT * FROM Usuario;";
+        qry = "SELECT * FROM Usuario";
 
         ResultSet resultado;
         

@@ -20,7 +20,7 @@ public class AgendamentoDAO {
     {	
         String qry;
 
-        qry = "SELECT * FROM Agendamento WHERE IdAgendamento=" +codigo +";";
+        qry = "SELECT * FROM Agendamento WHERE IdAgendamento=" +codigo;
 
         ResultSet resultado = bd.execConsulta (qry);
 
@@ -37,7 +37,7 @@ public class AgendamentoDAO {
 
         cmd = "INSERT INTO Agendamento (IdAgendamento, IdUsuario, Data, Caucao, DataFinal, IdVeiculo, ValorFinal) VALUES (" 
         +agendamento.getCodigo() +"," +agendamento.getUsuario() +", '" +agendamento.getData() +"', " +agendamento.getCaucao() + ",'" 
-        +agendamento.getDataFinal() +", '" +agendamento.getDataFinal() +"', " +agendamento.getVeiculo() +"," +agendamento.getValorAluguel()  +");";
+        +agendamento.getDataFinal() +", '" +agendamento.getDataFinal() +"', " +agendamento.getVeiculo() +"," +agendamento.getValorAluguel()  +")";
         
         bd.execComando (cmd);
     }
@@ -52,7 +52,7 @@ public class AgendamentoDAO {
 
         String cmd;
 
-        cmd = "DELETE FROM Agendamento WHERE IdAgendamento=" + codigo +";";
+        cmd = "DELETE FROM Agendamento WHERE IdAgendamento=" + codigo;
 
         bd.execComando (cmd);
     }
@@ -71,7 +71,7 @@ public class AgendamentoDAO {
         		+", Data= '" +agendamento.getData() + "', Caucao=" +agendamento.getCaucao()
         		+", DataFinal = '" +agendamento.getDataFinal() +"', IdVeiculo=" +agendamento.getVeiculo()
         		+", ValorFinal =" +agendamento.getValorAluguel()
-                +" WHERE IdAgendamento=" +agendamento.getCodigo() +";";
+                +" WHERE IdAgendamento=" +agendamento.getCodigo();
 
         bd.execComando (cmd);     
         
@@ -84,7 +84,7 @@ public class AgendamentoDAO {
         
         String qry;
 
-        qry = "SELECT * FROM Agendamento WHERE IdAgendamento=" + codigo +";";
+        qry = "SELECT * FROM Agendamento WHERE IdAgendamento=" + codigo;
 
         ResultSet resultado = bd.execConsulta (qry);
 
@@ -103,7 +103,7 @@ public class AgendamentoDAO {
     {
         String qry;
 
-        qry = "SELECT * FROM Agendamento;";
+        qry = "SELECT * FROM Agendamento";
 
         ResultSet resultado;
         
