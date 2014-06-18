@@ -19,9 +19,9 @@ import net.danielpaz.pucc.poo.trabalho.model.*;
 public class CadastrarMarca extends JPanel {
 
 	private javax.swing.JButton bGravar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lbCadastrarMarca;
+    private javax.swing.JLabel lbDescricao;
+    private javax.swing.JLabel lbCodigo;
     private javax.swing.JLabel jLabelErro;
     private javax.swing.JLabel jLabelSucesso;
     private javax.swing.JPanel jPanel1;
@@ -42,9 +42,9 @@ public class CadastrarMarca extends JPanel {
 		 
 
 	        jPanel2 = new javax.swing.JPanel();
-	        jLabel1 = new javax.swing.JLabel();
-	        jLabel2 = new javax.swing.JLabel();
-	        jLabel4 = new javax.swing.JLabel();
+	        lbCadastrarMarca = new javax.swing.JLabel();
+	        lbDescricao = new javax.swing.JLabel();
+	        lbCodigo = new javax.swing.JLabel();
 	        tdCodigo = new javax.swing.JTextField();
 	        tdDescricao = new javax.swing.JTextField();
 	        bGravar = new javax.swing.JButton();
@@ -57,14 +57,14 @@ public class CadastrarMarca extends JPanel {
 
 	        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-	        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-	        jLabel1.setText("Alterar Marca");
+	        lbCadastrarMarca.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+	        lbCadastrarMarca.setText("Cadastrar Marca");
 
-	        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-	        jLabel2.setText("Descrição");
+	        lbDescricao.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+	        lbDescricao.setText("Descrição");
 
-	        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-	        jLabel4.setText("Código");
+	        lbCodigo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+	        lbCodigo.setText("Código");
 
 	        tdCodigo.addActionListener(new java.awt.event.ActionListener() {
 	            public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +92,7 @@ public class CadastrarMarca extends JPanel {
 	    	            BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
 	    	    
 	    	             MarcaDAO marcaDAO = new MarcaDAO (bd);   		 
-	    	             marcaDAO.alterar(marca);
+	    	             marcaDAO.incluir(marca);
 	    	    		 
 	    	    		 bd.fecharConexao();
 	    	                 if (bd.sucessoBanco(true))
@@ -158,11 +158,11 @@ public class CadastrarMarca extends JPanel {
 	                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 	                    .addGroup(jPanel2Layout.createSequentialGroup()
 	                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-	                            .addComponent(jLabel1)
+	                            .addComponent(lbCadastrarMarca)
 	                            .addGroup(jPanel2Layout.createSequentialGroup()
 	                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-	                                    .addComponent(jLabel4)
-	                                    .addComponent(jLabel2))
+	                                    .addComponent(lbCodigo)
+	                                    .addComponent(lbDescricao))
 	                                .addGap(53, 53, 53)
 	                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 	                                    .addComponent(tdDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,14 +178,14 @@ public class CadastrarMarca extends JPanel {
 	            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 	            .addGroup(jPanel2Layout.createSequentialGroup()
 	                .addGap(24, 24, 24)
-	                .addComponent(jLabel1)
+	                .addComponent(lbCadastrarMarca)
 	                .addGap(18, 18, 18)
 	                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-	                    .addComponent(jLabel4)
+	                    .addComponent(lbCodigo)
 	                    .addComponent(tdCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
 	                .addGap(18, 18, 18)
 	                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-	                    .addComponent(jLabel2)
+	                    .addComponent(lbDescricao)
 	                    .addComponent(tdDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
 	                .addGap(30, 30, 30)
 	                .addComponent(bGravar)
