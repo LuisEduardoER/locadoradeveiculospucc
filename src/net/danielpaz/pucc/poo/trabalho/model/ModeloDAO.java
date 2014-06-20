@@ -36,8 +36,10 @@ public class ModeloDAO {
 	        bd.execComando (cmd);
 	    }
 
-	    public void excluir (int codigo) throws Exception
+	    public void excluir (Object cod) throws Exception
 	    {
+	    	int codigo = Integer.valueOf(cod.toString());
+	    	
 	            if (codigo <= 0)
 	            throw new Exception ("Codigo invalido");
 	        

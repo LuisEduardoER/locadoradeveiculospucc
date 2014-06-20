@@ -7,11 +7,11 @@ import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 
+
 import net.danielpaz.pucc.poo.trabalho.conexao.*;
 import net.danielpaz.pucc.poo.trabalho.model.*;
 
-
-public class CadastrarMarca extends JPanel {
+public class AlterarMarca extends JPanel {
 
 	private javax.swing.JButton bGravar;
     private javax.swing.JLabel lbCadastrarMarca;
@@ -25,7 +25,7 @@ public class CadastrarMarca extends JPanel {
     private javax.swing.JTextField tdDescricao;
 	
     
-	public CadastrarMarca() {
+	public AlterarMarca() {
 		
 		initComponents();
 
@@ -86,7 +86,7 @@ public class CadastrarMarca extends JPanel {
 	    	            BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
 	    	    
 	    	             MarcaDAO marcaDAO = new MarcaDAO (bd);   		 
-	    	             marcaDAO.incluir(marca);
+	    	             marcaDAO.alterar(marca);
 	    	    		 
 	    	    		 bd.fecharConexao();
 	    	                 if (bd.sucessoBanco(true))
@@ -101,7 +101,7 @@ public class CadastrarMarca extends JPanel {
 	    	                 }
 	    	             }
 	    	        } catch (Exception ex) {
-	    	            Logger.getLogger(CadastrarMarca.class.getName()).log(Level.SEVERE, null, ex);
+	    	            Logger.getLogger(AlterarMarca.class.getName()).log(Level.SEVERE, null, ex);
 	    	            erro = true;
 	    	        }
 	            }

@@ -199,7 +199,7 @@ public class Principal extends javax.swing.JFrame {
 	    }// </editor-fold>                        
 
 	    private void jTpVeiculoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {                                                    
-	        CadastroTipoVeiculo cadastroTpVeiculo = new CadastroTipoVeiculo();
+	        CadastrarTipoVeiculo cadastroTpVeiculo = new CadastrarTipoVeiculo();
 	  if (verificador = false)
 	        {    
 	         jPanel3.add(cadastroTpVeiculo);
@@ -219,7 +219,7 @@ public class Principal extends javax.swing.JFrame {
 	    }                                                   
 
 	    private void jModeloCadastrarActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-	 CadastroModelo cadastroModelo = new CadastroModelo();
+	 CadastrarModelo cadastroModelo = new CadastrarModelo();
 	  if (verificador = false)
 	        {    
 	         jPanel3.add(cadastroModelo);
@@ -240,7 +240,7 @@ public class Principal extends javax.swing.JFrame {
 	    }                                                
 
 	    private void jMarcaCadastrarActionPerformed(java.awt.event.ActionEvent evt) {                                                
-	        // TODO add your handling code here:
+	        
 	        CadastrarMarca cadastrarMarca = new CadastrarMarca();
 	  if (verificador = false)
 	        {    
@@ -281,7 +281,7 @@ public class Principal extends javax.swing.JFrame {
 	    }                                             
 
 	    private void jMarcaAlterarActionPerformed(java.awt.event.ActionEvent evt) {                                              
-	        // TODO add your handling code here:   
+	        
 	                AlterarMarca alterarMarca = new AlterarMarca();
 	        if (verificador = false)
 	        {    
@@ -303,7 +303,7 @@ public class Principal extends javax.swing.JFrame {
 	    }                                             
 
 	    private void jModeloAlterarActionPerformed(java.awt.event.ActionEvent evt) {                                               
-	        // TODO add your handling code here:
+	        
 	         AlterarModelo alterarModelo = new AlterarModelo();
 	   if (verificador = false)
 	        {    
@@ -326,7 +326,7 @@ public class Principal extends javax.swing.JFrame {
 	    }                                              
 
 	    private void jMarcaExibirActionPerformed(java.awt.event.ActionEvent evt) {                                             
-	        // TODO add your handling code here:
+	        
 	        ExibirMarca exibirMarca = new ExibirMarca();
 	        if (verificador = false)
 	        {
