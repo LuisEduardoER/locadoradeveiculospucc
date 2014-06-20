@@ -36,8 +36,10 @@ public class MarcaDAO {
 	        bd.execComando (cmd);
 	    }
 
-	    public void excluir (int codigo) throws Exception
+	    public void excluir (Object cod) throws Exception
 	    {
+	    	int codigo = Integer.valueOf(cod.toString());
+	    	
 	            if (codigo <= 0)
 	            throw new Exception ("Codigo invalido");
 	        
@@ -46,7 +48,7 @@ public class MarcaDAO {
 
 	        String cmd;
 
-	        cmd = "DELETE FROM Marca WHERE IdMarca=" + codigo;
+	        cmd = "DELETE FROM Marca WHERE IdMarca=" +codigo;
 
 	        bd.execComando (cmd);
 	    }
