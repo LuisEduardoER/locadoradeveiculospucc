@@ -1,4 +1,4 @@
-package net.danielpaz.pucc.poo.trabalho.model;
+package net.danielpaz.pucc.poo.trabalho.control;
 
 public class Agendamento {
 	
@@ -6,7 +6,7 @@ public class Agendamento {
 	private int usuario;
 	private String data;
 	private int veiculo;
-	private boolean caucao;
+	private int caucao;
 	private String dataFinal;
 	private float valorAluguel;
 	
@@ -16,15 +16,17 @@ public class Agendamento {
 		this.setCodigo(codigo);
 	}
 	
-	public Agendamento (int codigo, int usuario, String data, boolean caucao, String dataFinal, int veiculo, float valorAlguel)
+	public Agendamento (int codigo, int veiculo, int usuario, String data, String dataFinal, float valorAlguel, int caucao)
 	{
 		this.setCodigo(codigo);
+		this.setVeiculo(veiculo);
 		this.setUsuario(usuario);
 		this.setData(data);
-		this.setCaucao(caucao);
 		this.setDataFinal(dataFinal);
-		this.setVeiculo(veiculo);
 		this.setValorAluguel(valorAlguel);
+		this.setCaucao(caucao);
+		adicionaValorCaucao(caucao,valorAlguel);
+		
 	}
 
 
@@ -72,12 +74,12 @@ public class Agendamento {
 		this.data = data;
 	}
 	
-	public boolean getCaucao()
+	public int getCaucao()
 	{
 		return this.caucao;
 	}
 	
-	public void setCaucao(boolean caucao)
+	public void setCaucao(int caucao)
 	{
 		this.caucao = caucao;
 	}
@@ -90,9 +92,9 @@ public class Agendamento {
 		this.valorAluguel = valorAluguel;
 	}
 	
-	public void adicionaValorCaucao (boolean caucao, float valorAluguel)
+	public void adicionaValorCaucao (int caucao, float valorAluguel)
 	{
-		if (caucao == true)
+		if (caucao == 1)
 		{
 			float valorComCaucao = (float) (valorAluguel + (valorAluguel * 0.1));
 			setValorAluguel(valorComCaucao);

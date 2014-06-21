@@ -15,6 +15,7 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 
 import net.danielpaz.pucc.poo.trabalho.conexao.*;
+import net.danielpaz.pucc.poo.trabalho.control.TipoVeiculo;
 import net.danielpaz.pucc.poo.trabalho.model.*;
 
 
@@ -48,7 +49,7 @@ public class AlterarTipoVeiculo extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); 
-        jLabel1.setText("Cadastrar Tipo de Ve\u00EDculo");
+        jLabel1.setText("Alterar Tipo de Ve\u00EDculo");
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); 
         jLabel2.setText("Descrição");

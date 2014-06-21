@@ -1,6 +1,7 @@
 package net.danielpaz.pucc.poo.trabalho.model;
 import java.sql.ResultSet;
 import net.danielpaz.pucc.poo.trabalho.conexao.BD;
+import net.danielpaz.pucc.poo.trabalho.control.Usuario;
 
 public class UsuarioDAO {
 	private BD bd;
@@ -32,12 +33,14 @@ public class UsuarioDAO {
 
         String cmd;
 
-        cmd = "INSERT INTO Usuario (IdUsuario, Nome, Email, Senha) VALUES (" +usuario.getCodigo() +", '" +usuario.getNome() +"', '" +usuario.getEmail() +"', '" +usuario.getSenha() +"' )";
+        cmd = "INSERT INTO Usuario (IdUsuario, Nome, Email) VALUES (" +usuario.getCodigo() +", '" +usuario.getNome() +"', '" +usuario.getEmail() +"')";
         bd.execComando (cmd);
     }
 
-    public void excluir (int codigo) throws Exception
+    public void excluir (Object cod) throws Exception
     {
+    	int codigo = Integer.valueOf(cod.toString());
+    	
             if (codigo <= 0)
             throw new Exception ("Codigo invalido");
         
@@ -61,8 +64,7 @@ public class UsuarioDAO {
 
         String cmd;
 
-        cmd = "UPDATE Usuario SET Nome= '" +usuario.getNome() + "', Email=" +usuario.getEmail() + "', Senha=" +usuario.getSenha()
-              +" WHERE IdUsuario=" + usuario.getCodigo();
+        cmd = "UPDATE Usuario SET Nome= '" +usuario.getNome() + "', Email='" +usuario.getEmail() + "' WHERE IdUsuario=" +usuario.getCodigo();
 
         bd.execComando (cmd);        
     }
@@ -83,7 +85,7 @@ public class UsuarioDAO {
         if (!resultado.first())
             throw new Exception ("Codigo nao cadastrado");
 
-        Usuario usuario = new Usuario (resultado.getInt("IdUsuario") ,resultado.getString("Nome"), resultado.getString("Email"), resultado.getString("Senha"));
+        Usuario usuario = new Usuario (resultado.getInt("IdUsuario") ,resultado.getString("Nome"), resultado.getString("Email"));
       
         return usuario;
 

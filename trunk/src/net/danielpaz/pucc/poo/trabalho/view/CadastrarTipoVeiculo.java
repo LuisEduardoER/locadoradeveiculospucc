@@ -15,6 +15,7 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 
 import net.danielpaz.pucc.poo.trabalho.conexao.*;
+import net.danielpaz.pucc.poo.trabalho.control.TipoVeiculo;
 import net.danielpaz.pucc.poo.trabalho.model.*;
 
 

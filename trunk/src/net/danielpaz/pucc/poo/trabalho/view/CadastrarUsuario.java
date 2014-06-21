@@ -8,25 +8,29 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 
 import net.danielpaz.pucc.poo.trabalho.conexao.*;
-import net.danielpaz.pucc.poo.trabalho.control.Marca;
+import net.danielpaz.pucc.poo.trabalho.control.Usuario;
 import net.danielpaz.pucc.poo.trabalho.model.*;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Font;
 
 
-public class CadastrarMarca extends JPanel {
+public class CadastrarUsuario extends JPanel {
 
 	private javax.swing.JButton bGravar;
-    private javax.swing.JLabel lbCadastrarMarca;
-    private javax.swing.JLabel lbDescricao;
+    private javax.swing.JLabel lbCadastrarUsuario;
+    private javax.swing.JLabel lbNome;
     private javax.swing.JLabel lbCodigo;
     private javax.swing.JLabel jLabelErro;
     private javax.swing.JLabel jLabelSucesso;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField tdCodigo;
-    private javax.swing.JTextField tdDescricao;
+    private javax.swing.JTextField tdNome;
+    private JLabel lbEmail;
+    private JTextField tdEmail;
 	
     
-	public CadastrarMarca() {
+	public CadastrarUsuario() {
 		
 		initComponents();
 
@@ -37,11 +41,11 @@ public class CadastrarMarca extends JPanel {
 		 
 
 	        jPanel2 = new javax.swing.JPanel();
-	        lbCadastrarMarca = new javax.swing.JLabel();
-	        lbDescricao = new javax.swing.JLabel();
+	        lbCadastrarUsuario = new javax.swing.JLabel();
+	        lbNome = new javax.swing.JLabel();
 	        lbCodigo = new javax.swing.JLabel();
 	        tdCodigo = new javax.swing.JTextField();
-	        tdDescricao = new javax.swing.JTextField();
+	        tdNome = new javax.swing.JTextField();
 	        bGravar = new javax.swing.JButton();
 	        jPanel1 = new javax.swing.JPanel();
 	        jLabelSucesso = new javax.swing.JLabel();
@@ -52,11 +56,11 @@ public class CadastrarMarca extends JPanel {
 
 	        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-	        lbCadastrarMarca.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-	        lbCadastrarMarca.setText("Cadastrar Marca");
+	        lbCadastrarUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+	        lbCadastrarUsuario.setText("Cadastrar Usu\u00E1rio");
 
-	        lbDescricao.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-	        lbDescricao.setText("Descrição");
+	        lbNome.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+	        lbNome.setText("Nome");
 
 	        lbCodigo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 	        lbCodigo.setText("Código");
@@ -74,7 +78,7 @@ public class CadastrarMarca extends JPanel {
 	        bGravar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 	        bGravar.addActionListener(new java.awt.event.ActionListener() {
 	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	            	if (tdCodigo.getText().isEmpty() || tdDescricao.getText().isEmpty())
+	            	if (tdCodigo.getText().isEmpty() || tdNome.getText().isEmpty() || tdEmail.getText().isEmpty())
 	    	        {     
 	    	            JOptionPane.showMessageDialog(null, "Por favor preencher todos os campos", TOOL_TIP_TEXT_KEY, WIDTH, null);
 	    	            return;
@@ -83,19 +87,19 @@ public class CadastrarMarca extends JPanel {
 	    	       boolean erro;
 	    	       
 	    	        try {
-	    	            Marca marca = new Marca(Integer.parseInt(tdCodigo.getText()), tdDescricao.getText());
+	    	            Usuario usuario = new Usuario(Integer.parseInt(tdCodigo.getText()), tdNome.getText(), tdEmail.getText());
 	    	            BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
 	    	    
-	    	             MarcaDAO marcaDAO = new MarcaDAO (bd);   
-	    	             if (marcaDAO.cadastrado(Integer.parseInt(tdCodigo.getText()))== true)
+	    	             UsuarioDAO usuarioDAO = new UsuarioDAO (bd);   
+	    	             if (usuarioDAO.cadastrado(Integer.parseInt(tdCodigo.getText()))== true)
 	    	             {
-	    	                 JOptionPane.showMessageDialog(null, "O codigo da Marca já existe, por favor verificar o código novamente.", TOOL_TIP_TEXT_KEY, WIDTH, null);
+	    	                 JOptionPane.showMessageDialog(null, "O codigo do Usuario já existe, por favor verificar o código novamente.", TOOL_TIP_TEXT_KEY, WIDTH, null);
 	    	                 repaint();
 	    	                 return;
 	    	             }
 	    	             else
 	    	             {
-	    	             marcaDAO.incluir(marca);
+	    	            	 usuarioDAO.incluir(usuario);
 	    	    		 
 	    	    		 bd.fecharConexao();
 	    	                 if (bd.sucessoBanco(true))
@@ -111,7 +115,7 @@ public class CadastrarMarca extends JPanel {
 	    	             }
 	    	             }
 	    	        } catch (Exception ex) {
-	    	            Logger.getLogger(CadastrarMarca.class.getName()).log(Level.SEVERE, null, ex);
+	    	            Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
 	    	            erro = true;
 	    	        }
 	            }
@@ -152,51 +156,59 @@ public class CadastrarMarca extends JPanel {
 
 	        jLabelSucesso.setVisible(false);
 	        jLabelErro.setVisible(false);
+	        
+	        lbEmail = new JLabel();
+	        lbEmail.setText("E-mail");
+	        lbEmail.setFont(new Font("Arial", Font.PLAIN, 12));
+	        
+	        tdEmail = new JTextField();
 
 	        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-	        jPanel2.setLayout(jPanel2Layout);
 	        jPanel2Layout.setHorizontalGroup(
-	            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-	            .addGroup(jPanel2Layout.createSequentialGroup()
-	                .addGap(75, 75, 75)
-	                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-	                    .addGroup(jPanel2Layout.createSequentialGroup()
-	                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-	                            .addComponent(lbCadastrarMarca)
-	                            .addGroup(jPanel2Layout.createSequentialGroup()
-	                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-	                                    .addComponent(lbCodigo)
-	                                    .addComponent(lbDescricao))
-	                                .addGap(53, 53, 53)
-	                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-	                                    .addComponent(tdDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-	                                    .addComponent(tdCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-	                        .addContainerGap(131, Short.MAX_VALUE))
-	                    .addGroup(jPanel2Layout.createSequentialGroup()
-	                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-	                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-	                            .addComponent(bGravar))
-	                        .addGap(0, 0, Short.MAX_VALUE))))
+	        	jPanel2Layout.createParallelGroup(Alignment.LEADING)
+	        		.addGroup(jPanel2Layout.createSequentialGroup()
+	        			.addGap(75)
+	        			.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+	        				.addComponent(bGravar)
+	        				.addComponent(lbCadastrarUsuario)
+	        				.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+	        				.addGroup(jPanel2Layout.createSequentialGroup()
+	        					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+	        						.addComponent(lbCodigo)
+	        						.addComponent(lbNome)
+	        						.addComponent(lbEmail, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
+	        					.addGap(43)
+	        					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+	        						.addComponent(tdEmail, GroupLayout.PREFERRED_SIZE, 306, GroupLayout.PREFERRED_SIZE)
+	        						.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING, false)
+	        							.addComponent(tdCodigo)
+	        							.addComponent(tdNome, GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)))))
+	        			.addContainerGap(15, Short.MAX_VALUE))
 	        );
 	        jPanel2Layout.setVerticalGroup(
-	            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-	            .addGroup(jPanel2Layout.createSequentialGroup()
-	                .addGap(24, 24, 24)
-	                .addComponent(lbCadastrarMarca)
-	                .addGap(18, 18, 18)
-	                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-	                    .addComponent(lbCodigo)
-	                    .addComponent(tdCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-	                .addGap(18, 18, 18)
-	                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-	                    .addComponent(lbDescricao)
-	                    .addComponent(tdDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-	                .addGap(30, 30, 30)
-	                .addComponent(bGravar)
-	                .addGap(34, 34, 34)
-	                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-	                .addGap(0, 148, Short.MAX_VALUE))
+	        	jPanel2Layout.createParallelGroup(Alignment.LEADING)
+	        		.addGroup(jPanel2Layout.createSequentialGroup()
+	        			.addGap(24)
+	        			.addComponent(lbCadastrarUsuario)
+	        			.addGap(18)
+	        			.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
+	        				.addComponent(lbCodigo)
+	        				.addComponent(tdCodigo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+	        			.addGap(18)
+	        			.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
+	        				.addComponent(lbNome)
+	        				.addComponent(tdNome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+	        			.addGap(18)
+	        			.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
+	        				.addComponent(lbEmail, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+	        				.addComponent(tdEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+	        			.addGap(25)
+	        			.addComponent(bGravar)
+	        			.addPreferredGap(ComponentPlacement.RELATED)
+	        			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+	        			.addGap(0, 16, Short.MAX_VALUE))
 	        );
+	        jPanel2.setLayout(jPanel2Layout);
 
 	        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 	        layout.setHorizontalGroup(

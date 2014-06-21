@@ -1,4 +1,4 @@
-package net.danielpaz.pucc.poo.trabalho.model;
+package net.danielpaz.pucc.poo.trabalho.control;
 
 public class Modelo extends Marca 
 {
@@ -22,8 +22,6 @@ public class Modelo extends Marca
         this.descricaoModelo = descricaoModelo;
     }
     
-    
-
          
     public int getIdModelo ()
     {
@@ -37,10 +35,10 @@ public class Modelo extends Marca
     
 
       
-    public Modelo (int idMarca, int codigo, String descricaoModelo) throws Exception
+    public Modelo (int idMarca, int idModelo, String descricaoModelo) throws Exception
     {
     	super(idMarca);
-        this.setCodigo (codigo);
+        this.setIdModelo(idModelo); 
         this.setDescricaoModelo (descricaoModelo);
 
 

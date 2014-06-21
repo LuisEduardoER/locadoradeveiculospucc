@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import net.danielpaz.pucc.poo.trabalho.conexao.*;
+import net.danielpaz.pucc.poo.trabalho.control.Marca;
 import net.danielpaz.pucc.poo.trabalho.model.*;
 
 public class ExibirMarca extends javax.swing.JPanel {
@@ -243,7 +244,7 @@ public class ExibirMarca extends javax.swing.JPanel {
                 
                 
                 for (int i : tableMarca.getSelectedRows()) {
-                   Object marcaDeletar =  tableMarca.getValueAt(i, i);
+                   Object marcaDeletar =  tableMarca.getValueAt(i, 0);
                     String marcaDesc = (String) tableMarca.getValueAt(i, 1);
                     
                     int resposta;

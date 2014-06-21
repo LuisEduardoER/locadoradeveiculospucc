@@ -1,6 +1,7 @@
 package net.danielpaz.pucc.poo.trabalho.model;
 import java.sql.ResultSet;
 import net.danielpaz.pucc.poo.trabalho.conexao.BD;
+import net.danielpaz.pucc.poo.trabalho.control.TipoVeiculo;
 
 public class TipoVeiculoDAO {
 	 private BD bd;
@@ -36,7 +37,7 @@ public class TipoVeiculoDAO {
 	        bd.execComando (cmd);
 	    }
 
-	    public void excluir  (Object cod) throws Exception
+	    public void excluir (Object cod) throws Exception
 	    {
 	    	int codigo = Integer.valueOf(cod.toString());
 	            if (codigo <= 0)

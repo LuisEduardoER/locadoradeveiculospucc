@@ -3,12 +3,13 @@ package net.danielpaz.pucc.poo.trabalho.model;
 import java.sql.ResultSet;
 
 import net.danielpaz.pucc.poo.trabalho.conexao.BD;
+import net.danielpaz.pucc.poo.trabalho.control.Agendamento;
 
 public class AgendamentoDAO {
 	
 	private BD bd;
 	
-	private AgendamentoDAO (BD bd) throws Exception
+	public AgendamentoDAO (BD bd) throws Exception
 	{
 		 if (bd==null)
 	            throw new Exception ("Acesso a BD nao fornecido");
@@ -32,18 +33,21 @@ public class AgendamentoDAO {
     {
         if (agendamento==null)
             throw new Exception ("Agendamento nao fornecido");
-
+        
+           
         String cmd;
 
-        cmd = "INSERT INTO Agendamento (IdAgendamento, IdUsuario, Data, Caucao, DataFinal, IdVeiculo, ValorFinal) VALUES (" 
-        +agendamento.getCodigo() +"," +agendamento.getUsuario() +", '" +agendamento.getData() +"', " +agendamento.getCaucao() + ",'" 
-        +agendamento.getDataFinal() +", '" +agendamento.getDataFinal() +"', " +agendamento.getVeiculo() +"," +agendamento.getValorAluguel()  +")";
+        cmd = "INSERT INTO Agendamento (IdAgendamento, Data, Caucao, DATAFINAL, VALORFINAL, IDUSUARIO, IDVEICULO) VALUES (" 
+        +agendamento.getCodigo() +",'" +agendamento.getData() +"', " +agendamento.getCaucao() +", '" +agendamento.getDataFinal() +"', " +agendamento.getValorAluguel()
+        +", " +agendamento.getUsuario() +", " +agendamento.getVeiculo() +")";
         
         bd.execComando (cmd);
     }
 
-    public void excluir (int codigo) throws Exception
+    public void excluir(Object cod) throws Exception
     {
+    	int codigo = Integer.valueOf(cod.toString());
+    	
             if (codigo <= 0)
             throw new Exception ("Codigo invalido");
         
@@ -65,6 +69,7 @@ public class AgendamentoDAO {
         if (!cadastrado (agendamento.getCodigo()))
             throw new Exception ("Agendamento nao cadastrado");
 
+		
         String cmd;
 
         cmd = "UPDATE Agendamento SET IdUsuario= " +agendamento.getUsuario() 
@@ -91,9 +96,8 @@ public class AgendamentoDAO {
         if (!resultado.first())
             throw new Exception ("Codigo nao cadastrado");
 
-        Agendamento agendamento = new Agendamento (resultado.getInt("IdAgendamento") ,resultado.getInt("IdUsuario")
-        ,resultado.getString("Data"), resultado.getBoolean("Caucao"), resultado.getString("DataFinal")
-        ,resultado.getInt("IdVeiculo"), resultado.getFloat("ValorFinal"));
+        Agendamento agendamento = new Agendamento (resultado.getInt("IdAgendamento") ,resultado.getInt("IdUsuario"), resultado.getInt("IdVeiculo")
+        ,resultado.getString("Data"), resultado.getString("DataFinal"), resultado.getFloat("ValorFinal"), resultado.getInt("Caucao"));
       
         return agendamento;
 

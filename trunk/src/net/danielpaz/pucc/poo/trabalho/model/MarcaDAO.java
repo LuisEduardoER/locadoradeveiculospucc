@@ -1,6 +1,7 @@
 package net.danielpaz.pucc.poo.trabalho.model;
 import java.sql.ResultSet;
 import net.danielpaz.pucc.poo.trabalho.conexao.BD;
+import net.danielpaz.pucc.poo.trabalho.control.Marca;
 
 public class MarcaDAO {
 	    private BD bd;
@@ -38,7 +39,7 @@ public class MarcaDAO {
 
 	    public void excluir (Object cod) throws Exception
 	    {
-	    	int codigo = Integer.valueOf(cod.toString());
+	    	 int codigo = Integer.valueOf(cod.toString());
 	    	
 	            if (codigo <= 0)
 	            throw new Exception ("Codigo invalido");
