@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.util.*;
@@ -210,7 +211,14 @@ public class AlterarTipoVeiculo extends javax.swing.JPanel {
            
            BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
     
-             TipoVeiculoDAO tipoVeiculoDAO = new TipoVeiculoDAO (bd);   		 
+             TipoVeiculoDAO tipoVeiculoDAO = new TipoVeiculoDAO (bd);  
+             if (tipoVeiculoDAO.cadastrado(Integer.parseInt(tdCodigo.getText()))== false)
+             {
+                 JOptionPane.showMessageDialog(null, "O tipo de veiculo não existe, por favor verificar o código novamente.", TOOL_TIP_TEXT_KEY, WIDTH, null);
+                 repaint();
+                 return;
+             }
+             else{
              tipoVeiculoDAO.alterar(tipoVeiculo);
              bd.fecharConexao();
              
@@ -226,7 +234,7 @@ public class AlterarTipoVeiculo extends javax.swing.JPanel {
                  }
              }
              
-             
+             }  
         } catch (Exception ex) {
             Logger.getLogger(AlterarTipoVeiculo.class.getName()).log(Level.SEVERE, null, ex);
             erro = true;

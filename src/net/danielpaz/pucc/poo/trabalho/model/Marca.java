@@ -2,48 +2,48 @@ package net.danielpaz.pucc.poo.trabalho.model;
 
 public class Marca {   
     
-    protected int codigo;
-    protected String descricao;
+    protected int idMarca;
+    protected String descricaoMarca;
  
-    public void setCodigo (int codigo) throws Exception
+    public void setCodigo (int idMarca) throws Exception
     {
-        if (codigo <= 0)
+        if (idMarca <= 0)
             throw new Exception ("Codigo invalido");
 
-        this.codigo = codigo;
+        this.idMarca = idMarca;
     }
 
-    public void setDescricao (String descricao) throws Exception
+    public void setDescricaoMarca (String descricaoMarca) throws Exception
     {
-        if (descricao==null || descricao.equals(""))
+        if (descricaoMarca==null || descricaoMarca.equals(""))
             throw new Exception ("Descricao nao fornecida");
 
-        this.descricao = descricao;
+        this.descricaoMarca = descricaoMarca;
     }
 
-    public int getCodigo ()
+    public int getIdMarca ()
     {
-        return this.codigo;
+        return this.idMarca;
     }
 
-    public String getDescricao ()
+    public String getDescricaoMarca ()
     {
-        return this.descricao;
+        return this.descricaoMarca;
     }
 
-    public Marca (int codigo, String descricao) throws Exception
+    public Marca (int idMarca, String descricaoMarca) throws Exception
     {
-        this.setCodigo (codigo);
-        this.setDescricao (descricao);
+        this.setCodigo (idMarca);
+        this.setDescricaoMarca (descricaoMarca);
     }
     
-    public Marca (String descricao) throws Exception
+    public Marca (String descricaoMarca) throws Exception
     {
-        this.setDescricao (descricao);
+        this.setDescricaoMarca (descricaoMarca);
     }
       
-    public Marca (int codigo) throws Exception
+    public Marca (int idMarca) throws Exception
     {
-        this.setCodigo (codigo);
+        this.setCodigo (idMarca);
     }
 }

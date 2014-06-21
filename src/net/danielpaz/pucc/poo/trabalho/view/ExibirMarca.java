@@ -197,11 +197,11 @@ public class ExibirMarca extends javax.swing.JPanel {
                 
                 Marca marca = new Marca (Integer.parseInt(tdCodigo.getText()));
                 
-                int auxMarca = marca.getCodigo();
+                int auxMarca = marca.getIdMarca();
                 MarcaDAO marcaDAO = new MarcaDAO(bd);
                 Marca m = marcaDAO.getMarca(auxMarca);
-                tableMarca.getModel().setValueAt(m.getCodigo(), 0, 0);
-                tableMarca.getModel().setValueAt(m.getDescricao(), 0, 1);
+                tableMarca.getModel().setValueAt(m.getIdMarca(), 0, 0);
+                tableMarca.getModel().setValueAt(m.getDescricaoMarca(), 0, 1);
                 
       
         } catch (Exception ex) {

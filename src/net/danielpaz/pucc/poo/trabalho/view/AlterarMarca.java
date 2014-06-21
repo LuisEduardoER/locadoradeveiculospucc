@@ -78,14 +78,25 @@ public class AlterarMarca extends JPanel {
 	    	            JOptionPane.showMessageDialog(null, "Por favor preencher todos os campos", TOOL_TIP_TEXT_KEY, WIDTH, null);
 	    	            return;
 	    	        }
+	            	
 	    	       
 	    	       boolean erro;
 	    	       
 	    	        try {
+	    	      
 	    	            Marca marca = new Marca(Integer.parseInt(tdCodigo.getText()), tdDescricao.getText());
 	    	            BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
-	    	    
-	    	             MarcaDAO marcaDAO = new MarcaDAO (bd);   		 
+	    	            
+	    	             MarcaDAO marcaDAO = new MarcaDAO (bd); 
+	    	             
+	    	             if (marcaDAO.cadastrado(Integer.parseInt(tdCodigo.getText()))== false)
+	    	             {
+	    	                 JOptionPane.showMessageDialog(null, "A marca não existe, por favor verificar o código novamente.", TOOL_TIP_TEXT_KEY, WIDTH, null);
+	    	                 repaint();
+	    	                 return;
+	    	             }
+	    	             else
+	    	             {
 	    	             marcaDAO.alterar(marca);
 	    	    		 
 	    	    		 bd.fecharConexao();
@@ -99,6 +110,7 @@ public class AlterarMarca extends JPanel {
 	    	                 {    
 	    	                 jLabelErro.setVisible(true);
 	    	                 }
+	    	             }
 	    	             }
 	    	        } catch (Exception ex) {
 	    	            Logger.getLogger(AlterarMarca.class.getName()).log(Level.SEVERE, null, ex);

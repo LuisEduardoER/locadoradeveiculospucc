@@ -213,7 +213,15 @@ public class AlterarModelo extends javax.swing.JPanel {
              
              else
              {    
-             ModeloDAO modeloDAO = new ModeloDAO (bd);   		 
+             ModeloDAO modeloDAO = new ModeloDAO (bd); 
+             if (modeloDAO.cadastrado(Integer.parseInt(tdCodigo.getText()))== false)
+             {
+                 JOptionPane.showMessageDialog(null, "O Modelo não existe, por favor verificar o código novamente.", TOOL_TIP_TEXT_KEY, WIDTH, null);
+                 repaint();
+                 return;
+             }
+             else
+             {
              modeloDAO.alterar(modelo);
              bd.fecharConexao();
              if (bd.sucessoBanco(true))
@@ -228,7 +236,7 @@ public class AlterarModelo extends javax.swing.JPanel {
                  }
              }
              }
-             
+             } 
         } catch (Exception ex) {
             Logger.getLogger(AlterarModelo.class.getName()).log(Level.SEVERE, null, ex);
             erro = true;

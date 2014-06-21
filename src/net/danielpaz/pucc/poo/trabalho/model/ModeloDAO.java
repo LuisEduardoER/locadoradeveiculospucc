@@ -32,7 +32,7 @@ public class ModeloDAO {
 
 	        String cmd;
 
-	        cmd = "INSERT INTO Modelo (IdModelo, IdMarca, Descricao) VALUES ("+modelo.getCodigo() +", " +modelo.getMarca() + ", '" +modelo.getDescricao()+ "')";
+	        cmd = "INSERT INTO Modelo (IdModelo, IdMarca, Descricao) VALUES ("+modelo.getIdModelo() +", " +modelo.getIdMarca() + ", '" +modelo.getDescricaoModelo()+ "')";
 	        bd.execComando (cmd);
 	    }
 
@@ -58,13 +58,13 @@ public class ModeloDAO {
 	        if (modelo==null)
 	            throw new Exception ("Modelo nao fornecido");
 
-	        if (!cadastrado (modelo.getCodigo()))
+	        if (!cadastrado (modelo.getIdModelo()))
 	            throw new Exception ("Modelo nao cadastrado");
 
 	        String cmd;
 
-	        cmd = "UPDATE Modelo SET Descricao= '" +modelo.getDescricao() + "', IdMarca=" +modelo.getMarca() +
-	              " WHERE IdModelo=" + modelo.getCodigo();
+	        cmd = "UPDATE Modelo SET Descricao= '" +modelo.getDescricaoModelo() + "', IdMarca=" +modelo.getIdMarca() +
+	              " WHERE IdModelo=" + modelo.getIdModelo();
 
 	        bd.execComando (cmd);        
 	    }

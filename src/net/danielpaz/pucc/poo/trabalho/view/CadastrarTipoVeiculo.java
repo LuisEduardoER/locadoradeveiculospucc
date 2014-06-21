@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.util.*;
@@ -210,7 +211,15 @@ public class CadastrarTipoVeiculo extends javax.swing.JPanel {
            
            BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
     
-             TipoVeiculoDAO tipoVeiculoDAO = new TipoVeiculoDAO (bd);   		 
+             TipoVeiculoDAO tipoVeiculoDAO = new TipoVeiculoDAO (bd);
+             if (tipoVeiculoDAO.cadastrado(Integer.parseInt(tdCodigo.getText()))== true)
+             {
+                 JOptionPane.showMessageDialog(null, "O codigo do Tipo de Veiculo já existe, por favor verificar o código novamente.", TOOL_TIP_TEXT_KEY, WIDTH, null);
+                 repaint();
+                 return;
+             }
+             else
+             {
              tipoVeiculoDAO.incluir(tipoVeiculo);
              bd.fecharConexao();
              
@@ -226,7 +235,7 @@ public class CadastrarTipoVeiculo extends javax.swing.JPanel {
                  }
              }
              
-             
+             }  
         } catch (Exception ex) {
             Logger.getLogger(CadastrarTipoVeiculo.class.getName()).log(Level.SEVERE, null, ex);
             erro = true;

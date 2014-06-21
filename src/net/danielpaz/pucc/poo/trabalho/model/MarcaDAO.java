@@ -32,7 +32,7 @@ public class MarcaDAO {
 
 	        String cmd;
 
-	        cmd = "INSERT INTO Marca (IdMarca, Descricao) VALUES (" +marca.getCodigo() +", '"+marca.getDescricao()+"')";
+	        cmd = "INSERT INTO Marca (IdMarca, Descricao) VALUES (" +marca.getIdMarca() +", '"+marca.getDescricaoMarca()+"')";
 	        bd.execComando (cmd);
 	    }
 
@@ -58,15 +58,15 @@ public class MarcaDAO {
 	        if (marca==null)
 	            throw new Exception ("Marca nao fornecida");
 
-	        if (!cadastrado (marca.getCodigo()))
+	        if (!cadastrado (marca.getIdMarca()))
 	            throw new Exception ("Marca nao cadastrada");
 
 	        String cmd;
 
 	        cmd = "UPDATE Marca SET Descricao=" +
-	              "'" + marca.getDescricao() + ", ' " +
+	              "'" + marca.getDescricaoMarca() + ", ' " +
 	              "WHERE IdMarca=" +
-	               marca.getCodigo();
+	               marca.getIdMarca();
 
 	        bd.execComando (cmd);        
 	    }
