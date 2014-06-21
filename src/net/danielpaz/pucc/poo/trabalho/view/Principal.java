@@ -489,41 +489,185 @@ public class Principal extends javax.swing.JFrame {
 	    
 	    // Usuario
 	    private void jUsuarioCadastrarActionPerformed(java.awt.event.ActionEvent evt) { 
-	    	
+	    	  CadastrarUsuario cadastrarUsuario = new CadastrarUsuario();
+		        if (verificador = false)
+		        {
+		            jPanel3.add(cadastrarUsuario);
+		            cadastrarUsuario.setVisible(true);
+		            repaint();
+		            jPanel3.revalidate();
+		        }
+		        else
+		        {
+		            jPanel3.removeAll();
+		            jPanel3.add(cadastrarUsuario);
+		            cadastrarUsuario.setVisible(true);
+		            repaint();
+		            jPanel3.revalidate();
+		            verificador = true;
+		        }
 	    }
 	    
 	    private void jUsuarioAlterarActionPerformed(java.awt.event.ActionEvent evt) { 
-	    	
+	    	AlterarUsuario alterarUsuario = new AlterarUsuario();
+		        if (verificador = false)
+		        {
+		            jPanel3.add(alterarUsuario);
+		            alterarUsuario.setVisible(true);
+		            repaint();
+		            jPanel3.revalidate();
+		        }
+		        else
+		        {
+		            jPanel3.removeAll();
+		            jPanel3.add(alterarUsuario);
+		            alterarUsuario.setVisible(true);
+		            repaint();
+		            jPanel3.revalidate();
+		            verificador = true;
+		        }
 	    }
 	    
 	    private void jUsuarioExibirActionPerformed(java.awt.event.ActionEvent evt) { 
-	    	
+	    	ExibirUsuario exibirUsuario = new ExibirUsuario();
+	        if (verificador = false)
+	        {
+	            jPanel3.add(exibirUsuario);
+	            exibirUsuario.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	        }
+	        else
+	        {
+	            jPanel3.removeAll();
+	            jPanel3.add(exibirUsuario);
+	            exibirUsuario.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	            verificador = true;
+	        }
 	    }
 	    
 	    //Veiculo
 	    private void jVeiculoCadastrarActionPerformed(java.awt.event.ActionEvent evt) { 
-	    	
+	    	CadastrarVeiculo cadastrarVeiculo = new CadastrarVeiculo();
+	        if (verificador = false)
+	        {
+	            jPanel3.add(cadastrarVeiculo);
+	            cadastrarVeiculo.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	        }
+	        else
+	        {
+	            jPanel3.removeAll();
+	            jPanel3.add(cadastrarVeiculo);
+	            cadastrarVeiculo.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	            verificador = true;
+	        }
 	    }
 	    
 	    private void jVeiculoAlterarActionPerformed(java.awt.event.ActionEvent evt) { 
-	    	
+	    	AlterarVeiculo alterarVeiculo = new AlterarVeiculo();
+	        if (verificador = false)
+	        {
+	            jPanel3.add(alterarVeiculo);
+	            alterarVeiculo.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	        }
+	        else
+	        {
+	            jPanel3.removeAll();
+	            jPanel3.add(alterarVeiculo);
+	            alterarVeiculo.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	            verificador = true;
+	        }
 	    }
 	    
 	    private void jVeiculoExibirActionPerformed(java.awt.event.ActionEvent evt) { 
-	    	
+	    	ExibirVeiculo exibirVeiculo = new ExibirVeiculo();
+	        if (verificador = false)
+	        {
+	            jPanel3.add(exibirVeiculo);
+	            exibirVeiculo.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	        }
+	        else
+	        {
+	            jPanel3.removeAll();
+	            jPanel3.add(exibirVeiculo);
+	            exibirVeiculo.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	            verificador = true;
+	        }
 	    }
 	    
 	    // Agendamento
 	    private void jAgendamentoCadastrarActionPerformed(java.awt.event.ActionEvent evt) { 
-	    	
+	    	CadastrarAgendamento cadastrarAgendamento = new CadastrarAgendamento();
+	        if (verificador = false)
+	        {
+	            jPanel3.add(cadastrarAgendamento);
+	            cadastrarAgendamento.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	        }
+	        else
+	        {
+	            jPanel3.removeAll();
+	            jPanel3.add(cadastrarAgendamento);
+	            cadastrarAgendamento.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	            verificador = true;
+	        }
 	    }
 	    
 	    private void jAgendamentoAlterarActionPerformed(java.awt.event.ActionEvent evt) { 
-	    	
+	    	AlterarAgendamento alterarAgendamento = new AlterarAgendamento();
+	        if (verificador = false)
+	        {
+	            jPanel3.add(alterarAgendamento);
+	            alterarAgendamento.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	        }
+	        else
+	        {
+	            jPanel3.removeAll();
+	            jPanel3.add(alterarAgendamento);
+	            alterarAgendamento.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	            verificador = true;
+	        }
 	    }
 	    
 	    private void jAgendamentoExibirActionPerformed(java.awt.event.ActionEvent evt) { 
-	    	
+	    	ExibirAgendamento exibirAgendamento = new ExibirAgendamento();
+	        if (verificador = false)
+	        {
+	            jPanel3.add(exibirAgendamento);
+	            exibirAgendamento.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	        }
+	        else
+	        {
+	            jPanel3.removeAll();
+	            jPanel3.add(exibirAgendamento);
+	            exibirAgendamento.setVisible(true);
+	            repaint();
+	            jPanel3.revalidate();
+	            verificador = true;
+	        }
 	    }
 	    
 

@@ -125,7 +125,7 @@ public class ExibirModelo extends javax.swing.JPanel {
            
                 
         } catch (Exception e) {
-            Logger.getLogger(ExibirMarca.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ExibirModelo.class.getName()).log(Level.SEVERE, null, e);
         }
     }                                            
 
@@ -141,8 +141,7 @@ public class ExibirModelo extends javax.swing.JPanel {
                 for (int i : tableModelo.getSelectedRows()) 
                 {
                     Object modeloDeletar = tableModelo.getValueAt(i, 0);
-                    Object modeloMarca = tableModelo.getValueAt(i, 1);
-                    String modeloDesc = (String) tableModelo.getValueAt(i, 2);
+                    String modeloDesc = (String) tableModelo.getValueAt(i, 1);
                     
                     
                     int resposta;
@@ -171,7 +170,7 @@ public class ExibirModelo extends javax.swing.JPanel {
                    return;
                }
                 } catch (Exception e) {
-                Logger.getLogger(ExibirMarca.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(ExibirModelo.class.getName()).log(Level.SEVERE, null, e);
             }
         }
     }                                        

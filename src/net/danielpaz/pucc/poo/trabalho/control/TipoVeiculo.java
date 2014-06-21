@@ -1,4 +1,4 @@
-package net.danielpaz.pucc.poo.trabalho.model;
+package net.danielpaz.pucc.poo.trabalho.control;
 
 public class TipoVeiculo {
     

@@ -9,6 +9,7 @@ import javax.swing.GroupLayout.Alignment;
 
 
 import net.danielpaz.pucc.poo.trabalho.conexao.*;
+import net.danielpaz.pucc.poo.trabalho.control.Marca;
 import net.danielpaz.pucc.poo.trabalho.model.*;
 
 public class AlterarMarca extends JPanel {
@@ -52,7 +53,7 @@ public class AlterarMarca extends JPanel {
 	        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
 	        lbCadastrarMarca.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-	        lbCadastrarMarca.setText("Cadastrar Marca");
+	        lbCadastrarMarca.setText("Alterar Marca");
 
 	        lbDescricao.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 	        lbDescricao.setText("Descrição");

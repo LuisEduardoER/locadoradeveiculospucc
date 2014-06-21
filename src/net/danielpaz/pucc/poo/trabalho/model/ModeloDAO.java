@@ -1,6 +1,7 @@
 package net.danielpaz.pucc.poo.trabalho.model;
 import java.sql.ResultSet;
 import net.danielpaz.pucc.poo.trabalho.conexao.BD;
+import net.danielpaz.pucc.poo.trabalho.control.Modelo;
 
 public class ModeloDAO {
 	 private BD bd;
@@ -32,7 +33,7 @@ public class ModeloDAO {
 
 	        String cmd;
 
-	        cmd = "INSERT INTO Modelo (IdModelo, IdMarca, Descricao) VALUES ("+modelo.getIdModelo() +", " +modelo.getIdMarca() + ", '" +modelo.getDescricaoModelo()+ "')";
+	        cmd = "INSERT INTO Modelo (IdModelo, Descricao, IdMarca) VALUES ("+modelo.getIdModelo() +", '" +modelo.getDescricaoModelo() +"'," +modelo.getIdMarca() + ")";
 	        bd.execComando (cmd);
 	    }
 

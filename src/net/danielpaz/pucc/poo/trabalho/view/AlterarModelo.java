@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 
 import net.danielpaz.pucc.poo.trabalho.model.*;
 import net.danielpaz.pucc.poo.trabalho.conexao.*;
+import net.danielpaz.pucc.poo.trabalho.control.Modelo;
 
 public class AlterarModelo extends javax.swing.JPanel {
 

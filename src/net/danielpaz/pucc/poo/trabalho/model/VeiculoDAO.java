@@ -3,11 +3,12 @@ import java.sql.ResultSet;
 
 
 import net.danielpaz.pucc.poo.trabalho.conexao.BD;
+import net.danielpaz.pucc.poo.trabalho.control.Veiculo;
 
 public class VeiculoDAO {
 	private BD bd;
 		
-		private VeiculoDAO (BD bd) throws Exception
+		public VeiculoDAO (BD bd) throws Exception
 		{
 			 if (bd==null)
 		            throw new Exception ("Acesso a BD nao fornecido");
@@ -39,8 +40,10 @@ public class VeiculoDAO {
 	        bd.execComando (cmd);
 	    }
 
-	    public void excluir (int codigo) throws Exception
+	    public void excluir (Object cod) throws Exception
 	    {
+	    	int codigo = Integer.valueOf(cod.toString());
+	    	
 	            if (codigo <= 0)
 	            throw new Exception ("Codigo invalido");
 	        
@@ -92,7 +95,7 @@ public class VeiculoDAO {
 
 	    }
 
-	    public ResultSet getUsuario () throws Exception
+	    public ResultSet getVeiculo () throws Exception
 	    {
 	        String qry;
 

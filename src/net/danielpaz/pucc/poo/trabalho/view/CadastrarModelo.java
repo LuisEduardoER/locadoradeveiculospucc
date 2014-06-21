@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 
 import net.danielpaz.pucc.poo.trabalho.model.*;
 import net.danielpaz.pucc.poo.trabalho.conexao.*;
+import net.danielpaz.pucc.poo.trabalho.control.Modelo;
 
 public class CadastrarModelo extends javax.swing.JPanel {
 
@@ -198,7 +199,7 @@ public class CadastrarModelo extends javax.swing.JPanel {
       
         try {
             
-           Modelo modelo = new Modelo(Integer.parseInt(tdCodigo.getText()), Integer.parseInt(tdMarca.getText()), tdDescricao.getText());
+           Modelo modelo = new Modelo(Integer.parseInt(tdMarca.getText()), Integer.parseInt(tdCodigo.getText()), tdDescricao.getText());
            
            BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
     

@@ -11,14 +11,16 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import net.danielpaz.pucc.poo.trabalho.conexao.*;
-import net.danielpaz.pucc.poo.trabalho.control.TipoVeiculo;
+import net.danielpaz.pucc.poo.trabalho.control.Usuario;
 import net.danielpaz.pucc.poo.trabalho.model.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
 
 
-public class ExibirTipoVeiculo extends javax.swing.JPanel {
+public class ExibirUsuario extends javax.swing.JPanel {
 
     
-    public ExibirTipoVeiculo() {
+    public ExibirUsuario() {
         initComponents();
     }
                         
@@ -26,7 +28,7 @@ public class ExibirTipoVeiculo extends javax.swing.JPanel {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lbCodigo = new javax.swing.JLabel();
         tdCodigo = new javax.swing.JTextField();
         bBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -39,10 +41,10 @@ public class ExibirTipoVeiculo extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel1.setText("Exibir Tipo de Veículo");
+        jLabel1.setText("Exibir Usu\u00E1rio");
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setText("Código");
+        lbCodigo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lbCodigo.setText("Código");
 
         tdCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,13 +63,13 @@ public class ExibirTipoVeiculo extends javax.swing.JPanel {
             }
         });
 
-        tableModelo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null}
-            },
-            new String [] {
-                "Codigo", "Preço (R$)", "Descrição"
-            }
+        tableModelo.setModel(new DefaultTableModel(
+        	new Object[][] {
+        		{null, null, null},
+        	},
+        	new String[] {
+        		"Codigo", "Nome", "E-mail"
+        	}
         ));
         jScrollPane1.setViewportView(tableModelo);
 
@@ -88,66 +90,61 @@ public class ExibirTipoVeiculo extends javax.swing.JPanel {
         });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(426, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(bBuscar)
-                                .addGap(38, 38, 38)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(bBuscarTodos)
-                                        .addGap(42, 42, 42)
-                                        .addComponent(bDeletar))
-                                    .addComponent(tdCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+        	jPanel2Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel2Layout.createSequentialGroup()
+        			.addGap(75)
+        			.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(jLabel1)
+        				.addComponent(lbCodigo)
+        				.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING, false)
+        					.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+        						.addGap(52)
+        						.addComponent(tdCodigo))
+        					.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+        						.addComponent(bBuscar)
+        						.addGap(38)
+        						.addComponent(bBuscarTodos)
+        						.addGap(42)
+        						.addComponent(bDeletar))))
+        			.addContainerGap(97, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addGap(42, 42, 42)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(tdCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bBuscar)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(bBuscarTodos)
-                        .addComponent(bDeletar)))
-                .addGap(46, 46, 46)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 140, Short.MAX_VALUE))
+        	jPanel2Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel2Layout.createSequentialGroup()
+        			.addGap(24)
+        			.addComponent(jLabel1)
+        			.addGap(42)
+        			.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(lbCodigo)
+        				.addComponent(tdCodigo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(34)
+        			.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(bBuscar)
+        				.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
+        					.addComponent(bBuscarTodos)
+        					.addComponent(bDeletar)))
+        			.addGap(46)
+        			.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 287, GroupLayout.PREFERRED_SIZE)
+        			.addGap(0, 140, Short.MAX_VALUE))
         );
+        jPanel2.setLayout(jPanel2Layout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+        	layout.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        			.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(25, Short.MAX_VALUE))
         );
+        this.setLayout(layout);
     }                      
 
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {                                        
@@ -161,21 +158,20 @@ public class ExibirTipoVeiculo extends javax.swing.JPanel {
              
         	 BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
                 
-                TipoVeiculo tipoVeiculo = new TipoVeiculo (Integer.parseInt(tdCodigo.getText()));
+                Usuario usuario = new Usuario (Integer.parseInt(tdCodigo.getText()));
                 
-                int auxTipoVeiculo = tipoVeiculo.getCodigo();
-                TipoVeiculoDAO tipoVeiculoDAO = new TipoVeiculoDAO (bd);
-                TipoVeiculo tv = tipoVeiculoDAO.getTipoVeiculo(auxTipoVeiculo);
-                tableModelo.getModel().setValueAt(tv.getCodigo(), 0, 0);
-                tableModelo.getModel().setValueAt(tv.getPreco(), 0, 1);
-                tableModelo.getModel().setValueAt(tv.getDescricao(), 0, 2);
-                
+                int auxUsuario = usuario.getCodigo();
+                UsuarioDAO usuarioDAO = new UsuarioDAO (bd);
+                Usuario u = usuarioDAO.getUsuario(auxUsuario);
+                tableModelo.getModel().setValueAt(u.getCodigo(), 0, 0);
+                tableModelo.getModel().setValueAt(u.getNome(), 0, 1);
+                tableModelo.getModel().setValueAt(u.getEmail(), 0, 2);
                 
                 repaint();
              
         } catch (Exception ex) {
             
-            Logger.getLogger(ExibirTipoVeiculo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ExibirUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
             
     }                                       
@@ -189,14 +185,14 @@ public class ExibirTipoVeiculo extends javax.swing.JPanel {
         try {
         	 BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
                 
-                TipoVeiculoDAO tipoVeiculoDAO = new TipoVeiculoDAO (bd);
-                ResultSet resultado = tipoVeiculoDAO.getTipoVeiculo();
+                UsuarioDAO usuarioDAO = new UsuarioDAO (bd);
+                ResultSet resultado = usuarioDAO.getUsuario();
                 TableModel tblModel = buildTableModel(resultado);
                 tableModelo.setModel(tblModel);
            
                 
         } catch (Exception e) {
-            Logger.getLogger(ExibirTipoVeiculo.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ExibirUsuario.class.getName()).log(Level.SEVERE, null, e);
         }
     }                                            
 
@@ -206,19 +202,19 @@ public class ExibirTipoVeiculo extends javax.swing.JPanel {
 
             	 BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
                 
-                TipoVeiculoDAO tipoVeiculoDAO = new TipoVeiculoDAO (bd);
+                UsuarioDAO usuarioDAO = new UsuarioDAO (bd);
                 
                 
                 for (int i : tableModelo.getSelectedRows()) 
                 {
-                    Object tpVeiculoDeletar = tableModelo.getValueAt(i, 0);
-                    String tpVeiculoDesc = (String) tableModelo.getValueAt(i, 2);
+                    Object usuarioDeletar = tableModelo.getValueAt(i, 0);
+                    String tpUsuarioNome = (String) tableModelo.getValueAt(i, 1);
                     
                     int resposta;
-                    resposta = JOptionPane.showConfirmDialog(null, "Deseja deletar o Tipo de Veiculo " +tpVeiculoDesc + "?");
+                    resposta = JOptionPane.showConfirmDialog(null, "Deseja deletar o Usuario " +tpUsuarioNome + "?");
                     if (resposta == JOptionPane.YES_OPTION) 
                     {
-                    	tipoVeiculoDAO.excluir(tpVeiculoDeletar);  
+                    	usuarioDAO.excluir(usuarioDeletar);  
                     }
                     else
                     {
@@ -240,7 +236,7 @@ public class ExibirTipoVeiculo extends javax.swing.JPanel {
                    return;
                }
                 } catch (Exception e) {
-                Logger.getLogger(ExibirTipoVeiculo.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(ExibirUsuario.class.getName()).log(Level.SEVERE, null, e);
             }
         }
     }                                        
@@ -274,7 +270,7 @@ public class ExibirTipoVeiculo extends javax.swing.JPanel {
     private javax.swing.JButton bBuscarTodos;
     private javax.swing.JButton bDeletar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lbCodigo;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableModelo;
