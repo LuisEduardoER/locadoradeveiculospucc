@@ -1,6 +1,7 @@
 package net.danielpaz.pucc.poo.trabalho.model;
 
 import net.danielpaz.pucc.poo.trabalho.conexao.BD;
+import net.danielpaz.pucc.poo.trabalho.view.*;
 
 public class LocacaoVeiculosMain {
 
@@ -10,15 +11,9 @@ public class LocacaoVeiculosMain {
 	 */
 	public static void main(String[] args) throws Exception 
 	{
-		Marca marca = new Marca(2, "CONEXAOBANCO");
-		
-		BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
-		
-	
-		MarcaDAO marcaDAO = new MarcaDAO (bd);
-		marcaDAO.incluir(marca);
-		bd.fecharConexao();
-		
+		Principal principal = new Principal();
+		principal.setVisible(true);
+			
 		
 	}
 

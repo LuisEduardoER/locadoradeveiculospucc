@@ -1,72 +1,59 @@
 package net.danielpaz.pucc.poo.trabalho.model;
 
-public class Modelo {
+public class Modelo extends Marca 
+{
     
-    protected int codigo;
-    protected int marca;
-    protected String descricao;
+    protected int idModelo;
+    protected String descricaoModelo;
  
-    public void setCodigo (int codigo) throws Exception
+    public void setIdModelo (int idModelo) throws Exception
     {
-        if (codigo <= 0)
+        if (idModelo <= 0)
             throw new Exception ("Codigo invalido");
 
-        this.codigo = codigo;
+        this.idModelo = idModelo;
     }
 
-    public void setDescricao (String descricao) throws Exception
+    public void setDescricaoModelo (String descricaoModelo) throws Exception
     {
-        if (descricao==null || descricao.equals(""))
+        if (descricaoModelo==null || descricaoModelo.equals(""))
             throw new Exception ("Descricao nao fornecida");
 
-        this.descricao = descricao;
+        this.descricaoModelo = descricaoModelo;
     }
     
-        public void setMarca (int marca) throws Exception
-    {
-        if (marca <= 0)   
-        throw new Exception ("Marca invalido");
-        
-         this.marca = marca;
-    }
+    
 
          
-    public int getCodigo ()
+    public int getIdModelo ()
     {
-        return this.codigo;
+        return this.idModelo;
     }
 
-    public String getDescricao ()
+    public String getDescricaoModelo ()
     {
-        return this.descricao;
+        return this.descricaoModelo;
     }
     
-        public int getMarca ()
-    {
-        return this.marca;
-    }
 
       
-    public Modelo (int codigo, int marca, String descricao) throws Exception
+    public Modelo (int idMarca, int codigo, String descricaoModelo) throws Exception
     {
+    	super(idMarca);
         this.setCodigo (codigo);
-        this.setMarca(marca);
-        this.setDescricao (descricao);
+        this.setDescricaoModelo (descricaoModelo);
 
 
     }
     
-        public Modelo (int marca, String descricao) throws Exception
+        public Modelo (int idMarca,String descricaoModelo) throws Exception
     {
-        this.setMarca(marca);
-        this.setDescricao (descricao);
+        super(idMarca);	
+        this.setDescricaoModelo (descricaoModelo);
     }
-     
-     public Modelo (int codigo) throws Exception
-    {
-        this.setCodigo (codigo);
 
-    }
+		  
+  
 
 }
 

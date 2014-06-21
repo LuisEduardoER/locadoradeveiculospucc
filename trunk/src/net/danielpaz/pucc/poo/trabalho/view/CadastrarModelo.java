@@ -213,7 +213,15 @@ public class CadastrarModelo extends javax.swing.JPanel {
              
              else
              {    
-             ModeloDAO modeloDAO = new ModeloDAO (bd);   		 
+             ModeloDAO modeloDAO = new ModeloDAO (bd);
+             if (modeloDAO.cadastrado(Integer.parseInt(tdCodigo.getText()))== true)
+             {
+                 JOptionPane.showMessageDialog(null, "O codigo do modelo já existe, por favor verificar o código novamente.", TOOL_TIP_TEXT_KEY, WIDTH, null);
+                 repaint();
+                 return;
+             }
+             else
+             {
              modeloDAO.incluir(modelo);
              bd.fecharConexao();
              if (bd.sucessoBanco(true))
@@ -228,7 +236,7 @@ public class CadastrarModelo extends javax.swing.JPanel {
                  }
              }
              }
-             
+             }  
         } catch (Exception ex) {
             Logger.getLogger(CadastrarModelo.class.getName()).log(Level.SEVERE, null, ex);
             erro = true;

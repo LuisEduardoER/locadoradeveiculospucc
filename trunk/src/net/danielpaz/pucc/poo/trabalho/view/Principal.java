@@ -51,7 +51,20 @@ public class Principal extends javax.swing.JFrame {
 	        mTpVeiculo = new javax.swing.JMenu();
 	        jTpVeiculoAlterar = new javax.swing.JMenuItem();
 	        jTpVeiculoCadastrar = new javax.swing.JMenuItem();
-	        jTpVeiculoExibir = new javax.swing.JMenuItem();
+	        jTpVeiculoExibir = new javax.swing.JMenuItem();	        
+	        mUsuario = new javax.swing.JMenu();
+	        jUsuarioAlterar = new javax.swing.JMenuItem();
+	        jUsuarioCadastrar = new javax.swing.JMenuItem();
+	        jUsuarioExibir = new javax.swing.JMenuItem();	        
+	        mVeiculo = new javax.swing.JMenu();
+	        jVeiculoAlterar = new javax.swing.JMenuItem();
+	        jVeiculoCadastrar = new javax.swing.JMenuItem();
+	        jVeiculoExibir = new javax.swing.JMenuItem();	        
+	        mAgendamento = new javax.swing.JMenu();
+	        jAgendamentoAlterar = new javax.swing.JMenuItem();
+	        jAgendamentoCadastrar = new javax.swing.JMenuItem();
+	        jAgendamentoExibir = new javax.swing.JMenuItem();
+	        
 
 	        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 	        setBackground(new java.awt.Color(255, 255, 255));
@@ -170,7 +183,94 @@ public class Principal extends javax.swing.JFrame {
 	        mTpVeiculo.add(jTpVeiculoExibir);
 
 	        menu.add(mTpVeiculo);
+	        
+	        
+	        mUsuario.setText("Usuario");
 
+	        jUsuarioAlterar.setText("Alterar");
+	        jUsuarioAlterar.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                jUsuarioAlterarActionPerformed(evt);
+	            }
+	        });
+	        mUsuario.add(jUsuarioAlterar);
+
+	        jUsuarioCadastrar.setText("Cadastrar");
+	        jUsuarioCadastrar.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                jUsuarioCadastrarActionPerformed(evt);
+	            }
+	        });
+	        mUsuario.add(jUsuarioCadastrar);
+
+	        jUsuarioExibir.setText("Exibir");
+	        jUsuarioExibir.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                jUsuarioExibirActionPerformed(evt);
+	            }
+	        });
+	        mUsuario.add(jUsuarioExibir);
+
+	        menu.add(mUsuario);
+	        
+	        
+	        mVeiculo.setText("Veiculo");
+
+	        jVeiculoAlterar.setText("Alterar");
+	        jVeiculoAlterar.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                jVeiculoAlterarActionPerformed(evt);
+	            }
+	        });
+	        mVeiculo.add(jVeiculoAlterar);
+
+	        jVeiculoCadastrar.setText("Cadastrar");
+	        jVeiculoCadastrar.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                jVeiculoCadastrarActionPerformed(evt);
+	            }
+	        });
+	        mVeiculo.add(jVeiculoCadastrar);
+
+	        jVeiculoExibir.setText("Exibir");
+	        jVeiculoExibir.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                jVeiculoExibirActionPerformed(evt);
+	            }
+	        });
+	        mVeiculo.add(jVeiculoExibir);
+
+	        menu.add(mVeiculo);
+
+	        //
+	        mAgendamento.setText("Agendamento");
+
+	        jAgendamentoAlterar.setText("Alterar");
+	        jAgendamentoAlterar.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                jAgendamentoAlterarActionPerformed(evt);
+	            }
+	        });
+	        mAgendamento.add(jAgendamentoAlterar);
+
+	        jAgendamentoCadastrar.setText("Cadastrar");
+	        jAgendamentoCadastrar.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                jAgendamentoCadastrarActionPerformed(evt);
+	            }
+	        });
+	        mAgendamento.add(jAgendamentoCadastrar);
+
+	        jAgendamentoExibir.setText("Exibir");
+	        jAgendamentoExibir.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                jAgendamentoExibirActionPerformed(evt);
+	            }
+	        });
+	        mAgendamento.add(jAgendamentoExibir);
+
+	        menu.add(mAgendamento);
+	        
 	        setJMenuBar(menu);
 
 	        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -385,7 +485,47 @@ public class Principal extends javax.swing.JFrame {
 	            jPanel3.revalidate();
 	            verificador = true;
 	        }
-	    }                                                
+	    }        
+	    
+	    // Usuario
+	    private void jUsuarioCadastrarActionPerformed(java.awt.event.ActionEvent evt) { 
+	    	
+	    }
+	    
+	    private void jUsuarioAlterarActionPerformed(java.awt.event.ActionEvent evt) { 
+	    	
+	    }
+	    
+	    private void jUsuarioExibirActionPerformed(java.awt.event.ActionEvent evt) { 
+	    	
+	    }
+	    
+	    //Veiculo
+	    private void jVeiculoCadastrarActionPerformed(java.awt.event.ActionEvent evt) { 
+	    	
+	    }
+	    
+	    private void jVeiculoAlterarActionPerformed(java.awt.event.ActionEvent evt) { 
+	    	
+	    }
+	    
+	    private void jVeiculoExibirActionPerformed(java.awt.event.ActionEvent evt) { 
+	    	
+	    }
+	    
+	    // Agendamento
+	    private void jAgendamentoCadastrarActionPerformed(java.awt.event.ActionEvent evt) { 
+	    	
+	    }
+	    
+	    private void jAgendamentoAlterarActionPerformed(java.awt.event.ActionEvent evt) { 
+	    	
+	    }
+	    
+	    private void jAgendamentoExibirActionPerformed(java.awt.event.ActionEvent evt) { 
+	    	
+	    }
+	    
 
 	    /**
 	     * @param args the command line arguments
@@ -408,9 +548,9 @@ public class Principal extends javax.swing.JFrame {
 	        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
 	            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 	        }
-	        //</editor-fold>
+	        
 
-	        /* Create and display the form */
+	        
 	        java.awt.EventQueue.invokeLater(new Runnable() {
 	            public void run() {
 	                new Principal().setVisible(true);
@@ -433,10 +573,23 @@ public class Principal extends javax.swing.JFrame {
 	    private javax.swing.JMenuItem jTpVeiculoAlterar;
 	    private javax.swing.JMenuItem jTpVeiculoCadastrar;
 	    private javax.swing.JMenuItem jTpVeiculoExibir;
+	    private javax.swing.JMenuItem jUsuarioAlterar;
+	    private javax.swing.JMenuItem jUsuarioCadastrar;
+	    private javax.swing.JMenuItem jUsuarioExibir;
+	    private javax.swing.JMenuItem jVeiculoAlterar;
+	    private javax.swing.JMenuItem jVeiculoCadastrar;
+	    private javax.swing.JMenuItem jVeiculoExibir;	    
+	    private javax.swing.JMenuItem jAgendamentoAlterar;
+	    private javax.swing.JMenuItem jAgendamentoCadastrar;
+	    private javax.swing.JMenuItem jAgendamentoExibir;
 	    private javax.swing.JMenu mMarca;
 	    private javax.swing.JMenu mModelo;
 	    private javax.swing.JMenu mTpVeiculo;
+	    private javax.swing.JMenu mUsuario;
+	    private javax.swing.JMenu mVeiculo;
+	    private javax.swing.JMenu mAgendamento;
 	    private javax.swing.JMenuBar menu;
+	    
 	    // End of variables declaration                   
 	}
 
