@@ -92,6 +92,15 @@ public class Agendamento {
 		this.valorAluguel = valorAluguel;
 	}
 	
+	/**
+
+	 * Metodo que adiciona 10% do valor do alguel se for adicionado caucao
+
+	 * @param caucao - caucao
+
+	 * @param valorAlguel - valor do alguel
+
+	 */
 	public void adicionaValorCaucao (int caucao, float valorAluguel)
 	{
 		if (caucao == 1)

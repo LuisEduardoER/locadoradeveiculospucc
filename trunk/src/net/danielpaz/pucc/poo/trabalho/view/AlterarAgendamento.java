@@ -98,7 +98,20 @@ public class AlterarAgendamento extends JPanel {
 	                    	Agendamento agendamento = new Agendamento (Integer.parseInt(tdCodigo.getText()), Integer.parseInt(tdCodigoVeiculo.getText()), Integer.parseInt(tdCodigoUsuario.getText()), tdDataInicial.getText(), tdDataFinal.getText(), Float.valueOf(tdValor.getText().replace(",", ".")), 1);
 	                    	BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
 	    	    
-	                    	AgendamentoDAO agendamentoDAO = new AgendamentoDAO(bd);   
+	                    	AgendamentoDAO agendamentoDAO = new AgendamentoDAO(bd);  
+	                    	
+	                    	UsuarioDAO usuarioDAO = new UsuarioDAO (bd);
+	                    	VeiculoDAO veiculoDAO = new VeiculoDAO(bd);
+	                         
+	                         if (usuarioDAO.cadastrado(Integer.parseInt(tdCodigoUsuario.getText()))== false || veiculoDAO.cadastrado(Integer.parseInt(tdCodigoVeiculo.getText()))== false)
+	                         {
+	                             JOptionPane.showMessageDialog(null, "O Codigo do Usuario ou Codigo do Veiculo não existe, por favor verificar o código novamente.", TOOL_TIP_TEXT_KEY, WIDTH, null);
+	                             repaint();
+	                             return;
+	                         }
+	                         
+	                         else
+	                         { 
 	                    	if (agendamentoDAO.cadastrado(Integer.parseInt(tdCodigo.getText()))== false)
 	                    	{
 	                    		JOptionPane.showMessageDialog(null, "O codigo do Agendamento não existe, por favor verificar o código novamente.", TOOL_TIP_TEXT_KEY, WIDTH, null);
@@ -122,6 +135,7 @@ public class AlterarAgendamento extends JPanel {
 	                    			}
 	                    		}
 	                    	}
+	                    }
 	                    }
 	                    else
 	                    {
