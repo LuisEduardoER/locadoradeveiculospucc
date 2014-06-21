@@ -90,7 +90,19 @@ public class AlterarVeiculo extends JPanel {
 	    	        try {
 	    	            Veiculo veiculo = new Veiculo(Integer.parseInt(tdCodigoVeiculo.getText()),Integer.parseInt(tdCodigoModelo.getText()),tdPlaca.getText(), Integer.parseInt(tdCodigoTpVeiculo.getText()));
 	    	            BD bd = new BD ("oracle.jdbc.driver.OracleDriver","jdbc:oracle:thin:@localhost:1521:xe","system", "poo2014");
-	    	    
+	    	            
+	    	            ModeloDAO modeloDAO = new ModeloDAO (bd);
+                    	TipoVeiculoDAO tipoVeiculoDAO = new TipoVeiculoDAO(bd);
+                         
+                         if (modeloDAO.cadastrado(Integer.parseInt(tdCodigoModelo.getText()))== false || tipoVeiculoDAO.cadastrado(Integer.parseInt(tdCodigoTpVeiculo.getText()))== false)
+                         {
+                             JOptionPane.showMessageDialog(null, "O Codigo do Modelo ou Codigo do Tipo de Veiculo não existe, por favor verificar o código novamente.", TOOL_TIP_TEXT_KEY, WIDTH, null);
+                             repaint();
+                             return;
+                         }
+                         
+                         else
+                         { 
 	    	             VeiculoDAO veiculoDAO = new VeiculoDAO(bd);   
 	    	             if (veiculoDAO.cadastrado(Integer.parseInt(tdCodigoVeiculo.getText()))== false)
 	    	             {
@@ -115,6 +127,7 @@ public class AlterarVeiculo extends JPanel {
 	    	                 }
 	    	             }
 	    	             }
+                         }
 	    	        } catch (Exception ex) {
 	    	            Logger.getLogger(AlterarVeiculo.class.getName()).log(Level.SEVERE, null, ex);
 	    	            erro = true;
